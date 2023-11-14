@@ -1,110 +1,135 @@
-let nombreUsuario = prompt(
-    "Hola! Bienvenido al menu de distribucion de mesas de su restaurante, por favor ingrese su usuario"
-  );
-  console.log("El usuario ingresado es " + nombreUsuario);
+/**
+ *
+ *
+ * INICIO DE APLICACION
+ *
+ */
+const agregarPedido = (mesa) =>{
+  let pedido = document.createElement("dialog");
+  pedido.id = "modal";
+  pedido.classList.add = "modal"
+
+  let titulo = document.createElement("h2");
+  titulo.innerText = `Ingrese la orden de la mesa n° ${mesa.id}`
+  titulo.classList.add("titulo--dialog")
   
-  alert("El usuario ingresado es " + nombreUsuario);
+  let entrada = document.createElement("div");
+  entrada.classList.add("input");
+  entrada.innerHTML = ` <label class="etiqueta--dialog" for="inputEntrada">Entrada:</label>
+  <input type="text" id="inputEntrada" class="input--form">`
   
-  let contraseniaUsuario = prompt(
-    " Bienvenido " + nombreUsuario + " por favor ingrese su clave de trabajador"
-  );
+  let platoPrincipal = document.createElement("div");
+  platoPrincipal.classList.add("input");
+  platoPrincipal.innerHTML = ` <label class="etiqueta--dialog" for="inputPlatoPrincipal">Plato Principal:</label>
+  <input type="text" id="inputEntrada" class="input--form">`
   
-  if (nombreUsuario != "" && contraseniaUsuario != "") {
-    console.log("Bienvenido " + nombreUsuario + " a su turno laboral");
-    alert(
-      "Bienvenido " +
-        nombreUsuario +
-        " a su turno laboral. El proceso continuara con una serie de datos a fin de determinar la estructura de su turno"
-    );
+  let bebida = document.createElement("div");
+  bebida.classList.add("input");
+  bebida.innerHTML = ` <label class="etiqueta--dialog" for="inputBebida">Bebida :</label>
+  <input type="text" id="inputEntrada" class="input--form">`
+  
+  let postre = document.createElement("div");
+  postre.classList.add("input");
+  postre.innerHTML = ` <label class="etiqueta--dialog" for="inputEntrada">Postre:</label>
+  <input type="text" id="inputEntrada" class="input--form">`
+  
+  pedido.append(titulo, entrada, platoPrincipal, bebida, postre);
+  document.body.appendChild(pedido);
+  pedido.showModal();
+
+}
+
+const indiceMesa = (id) =>{
+  return mesasSeleccionadas.findIndex((el)=>{
+    return el.id === id;
+
+  })
+
+}
+
+const seleccionarMesa = (elemento)=>{
+    
+  const seleccionMesa = document.getElementById(`mesa-${elemento.id}`);
+  seleccionMesa.className += " ocupado";
+  // Agregar mesa a la lista
+  const indiceSeleccionMesa = indiceMesa(elemento.id);
+  if(indiceSeleccionMesa !== -1){
+    elemento.ocupado = false;
+    seleccionMesa.classList.remove("ocupado");
+    mesasSeleccionadas.splice(indiceSeleccionMesa, 1);
+    
+  }else{
+    elemento.ocupado = true;
+    seleccionMesa.classList.add = " ocupado "
+    mesasSeleccionadas.push(elemento);
+    agregarPedido(elemento);
+    
   }
-  
-  let horarioLaboral = parseInt(
-    prompt("Por favor registre la cantidad de horas que hara en su turno")
-  );
-  
-  if (horarioLaboral <= 7) {
-    alert("Su turno del dia de hoy sera part time");
-  } else {
-    alert("Su turno del dia de hoy sera full time");
+
+}
+
+
+function crearMesas(render) {
+  let mesasArray = [];
+  for (let i = 1; i <= 36; i++) {
+    mesasArray.push(new Mesas(i));
   }
-  
-  const sectorA = "Mesas 1-12";
-  const sectorB = "Mesas 13-24";
-  const sectorC = "Mesas 25-36";
-  const finTurno = "FINALIZAR";
-  
-  let seccionEmpleado = prompt(
-    "Por favor ingrese a continuacion la designacion de su sector de trabajo informada previamente por su supervisor/encargado. Los valores posibles son A-B-C"
-  );
-  
-  class Pedido {
-    constructor(numeroMesa, entrada, platoPrincipal, postre, bebida) {
-      this.numeroMesa = numeroMesa;
-      this.entrada = entrada;
-      this.platoPrincipal = platoPrincipal;
-      this.postre = postre;
-      this.bebida = bebida;
+  return mesasArray;
+}
+
+const renderizarPlataforma = (elemento) => {
+  let main = document.querySelector("#main");
+  main.innerHTML = "";
+  let boton = document.createElement("button");
+  boton.className = "boton";
+
+  boton.innerHTML = '<a href="/index.html">Volver al inicio</a>';
+
+  let titulo = document.createElement("h1");
+  titulo.className = "titulo";
+  titulo.innerText = "Proyecto JS-Distribucion de mesas de restaurante";
+
+  let contenedor = document.createElement("div");
+  contenedor.className = "grilla";
+
+  let mesasRender = "";
+  for (const mesa of elemento) {
+    mesasRender = document.createElement("div");
+    mesasRender.className = "casilla";
+    mesasRender.innerText = `${mesa.id}`;
+    mesasRender.id = `mesa-${mesa.id}`
+    if(mesa.ocupado === true){
+    mesasRender.className += " ocupado";
+    
     }
+   if(mesa.nodisponible === true){
+      mesasRender.className += " nodisponible";
+    }
+    contenedor.append(mesasRender);
+
+    // Eventos del click
+
+    mesasRender.addEventListener("click", () =>{
+      seleccionarMesa(mesa);
+      console.log(mesasSeleccionadas);
+    })
   }
-  const pedidosRestaurante = [];
+
+  main.append(boton, titulo, contenedor);
   
-  if (seccionEmpleado == "A") {
-    tomaPedido(0, sectorA);
-  } else if (seccionEmpleado == "B") {
-    tomaPedido(12, sectorB);
-  } else if (seccionEmpleado == "C") {
-    tomaPedido(24, sectorC);
-  } else {
-    alert(
-      "Por favor, ingrese una opcion valida. Recuerde que las opciones validas son A-B-C"
-    );
+};
+
+
+class Mesas {
+  constructor(id) {
+    this.id = id;
+    this.ocupado = false;
+    this.nodisponible = false;
   }
-  
-  function tomaPedido(numeroMesa, sector) {
-    alert("Su sector de trabajo sera " + sector);
-    let ordenMesa = "";
-   
-  
-    do {
-  
-     
-      for (i = 1; i <= 12; i++) {
-        
-        
-        alert("A continuacion se solicitara el ingreso del pedido de la mesa " + (i + numeroMesa));
-        let numeroMesaPedido = (numeroMesa + i)
-        let entradaPedido = prompt("Ingrese la entrada solicitada");
-        let platoPrincipalPedido = prompt(
-          "Ingrese el plato principal solicitado"
-          );
-          let postrePedido = prompt("Ingrese el postre solicitada");
-          let bebidaPedido = prompt("Ingrese la bebida solicitada");
-          
-          const pedidoMesa = new Pedido(
-            numeroMesaPedido,
-            entradaPedido,
-            platoPrincipalPedido,
-            postrePedido,
-            bebidaPedido
-            );
-            
-            pedidosRestaurante.push(pedidoMesa);
-            ordenMesa =  prompt("Si quiere seleccionar la mesa siguiente, deje la casilla en blanco. Si quiere volver al inicio, digite FINALIZAR")
-                        if (ordenMesa.toUpperCase() === finTurno){
-                             break;
-                         }
-      }
-      
-    } while (ordenMesa !== finTurno);
-  }
-  
-  pedidosRestaurante.map((atributo) => [
-    alert(
-      `El pedido de la mesa numero ${atributo.numeroMesa} consta de :\n Entrada: ${atributo.entrada} \n Plato Principal:  ${atributo.platoPrincipal} \n Bebida: ${atributo.bebida} \n Postre: ${atributo.postre}`
-    ),
-  ]);
-  
-  
-  
-  alert("Gracias por usar mi sistema");
-  
+}
+
+let mesas = crearMesas();
+const mesasSeleccionadas = [];
+renderizarPlataforma(mesas);
+
+
