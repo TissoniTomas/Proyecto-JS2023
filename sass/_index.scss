@@ -1,52 +1,116 @@
-*{ 
-   
-    font-family: sans-serif;
-    background-color: #c0f6f9;
+* {
+  font-family: sans-serif;
+  background-color: #c0f6f9;
 }
 
-
-.navbar{
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    margin: 10px 100px;
+@font-face {
+  font-family: "Tungsten";
+  src: url(/fonts/Tungsten-Bold.ttf);
 }
 
-.imagen--logo{
-    width: 150px;
-    height: 150px;
-    margin-right: 300px;
-
+.navbar {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 10px 100px;
 }
 
-.navbar-items{
-    display: flex;
-    align-items: center;
-    list-style-type: none;
+.imagen--logo {
+  width: 150px;
+  height: 150px;
+  margin-right: 300px;
+}
+
+.navbar-items {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  color: red;
+  font-size: 35px;
+
+  :hover {
+    text-decoration: underline;
+  }
+
+  .link {
+    text-decoration: none;
     color: red;
+    font-family: "Tungsten";
+  }
+}
+
+.navbar--listado {
+  margin: 0px 100px;
+  font-family: "Tungsten";
+  letter-spacing: 2px;
+  font-size: 55px;
+}
+
+#main {
+  margin: 100px;
+  text-align: center;
+}
+
+.section--presentacion {
+  margin-bottom: 50px;
+  .titulo--presentacion {
+    color: blue;
+    font-family: "Tungsten";
+    font-size: 80px;
+  }
+  .parrafo--presentacion {
+    font-size: 50px;
+  }
+}
+
+.section--info {
+  margin-top: 200px;
+  .info--titulo {
+    color: blue;
+    font-family: "Tungsten";
+    font-size: 60px;
+  }
+  .info--parrafo {
     font-size: 35px;
-    :hover{
-        text-decoration: underline;
-    }
-    .link{
-        text-decoration: none;
-        color: red;
-    }
-    
+  }
 }
+.cards {
+  .card--titulo {
+    color: blue;
+    font-family: "Tungsten";
+    font-size: 50px;
+  }
+  .cards--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8e9dcc;
 
-.navbar--listado{
-    margin: 0px 50px;
-}
+    .cards--clientes {
+      width: 450px;
+      height: 800px;
+      border: 5px double black;
+      margin: 30px;
+      background-color: #8e9dcc;
 
-#main{
-    margin: 100px;
-    text-align: center;
-}
+      .cards--img {
+        width: 400px;
+        height: 350px;
+        margin-top: 20px;
+      }
 
-.section--presentacion{
-    margin-bottom: 100px;
-    .titulo--presentacion{
-        color: blue;
+      .cards--titulo {
+        font-family: "Tungsten";
+        font-size: 35px;
+        background-color: #8e9dcc;
+      }
+
+      .cards--parrafo {
+        text-align: center;
+        font-size: 20px;
+        margin: 0px 15px;
+        background-color: #8e9dcc;
+      }
     }
+  }
 }

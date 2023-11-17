@@ -1,59 +1,107 @@
-.titulo{
-    text-align: center;
+@font-face {
+    font-family: Tungsten;
+    src: url(fonts/Tungsten/Tungsten-Bold/Tungsten-Bold.ttf);
 }
 
-.casilla{
-    width: 100px;
-    height: 100px;
-    background-color: pink;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    font-size: 30px;
-    margin: 25px;
 
-
+.titulo {
+  text-align: center;
+  font-family: Tungsten;
+  font-size: 60px;
+  border: 10px double red;
 }
 
-.grilla{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-}
-.input{
-    display: flex;
-    flex-direction: column;
-    margin: 50px;
-    color: blue;
-    background-color: pink;
-}
-.titulo--dialog{
-    background-color: pink;
-}
-.input--form{
-    height: 30px;
-    background-color: pink;
-
-}
-.etiqueta--dialog{
-    font-size: 30px;
-
-}
-.boton{
-    background-color: red;
-    
+.casilla {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  font-size: 30px;
+  margin: 25px;
 }
 
-.ocupado{
-    background-color: red;
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+ color: black;
+  background-color: pink;
+  
+}
+.titulo--dialog {
+  background-color: pink;
+  text-align: center;
+}
+.input--form {
+  height: 30px;
+  background-color: pink;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: blue
+}
+.etiqueta--dialog {
+  font-size: 30px;
+  background-color: pink;
+}
+.boton {
+  background-color: #fcf5c7;
+  
+  display: flex;
+  height: auto;
+  width: 150px;
+  border: 5px solid #fcf5c7;
+  border-radius: 20px;
 }
 
-.nodisponible{
-    background-color: black;
+.text--boton {
+  font-family: Tungsten;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  background-color: #fcf5c7;
 }
 
-#modal{
-    background-color: pink;
+
+.ocupado {
+  background-color: red;
+}
+
+.nodisponible {
+  background-color: black;
+}
+
+#modal {
+  background-color: pink;
+}
+.divBotones {
+  background-color: pink;
+  display: flex;
+  justify-content: space-around;
+  margin: 0px 100px;
+}
+.botonPedido {
+  background-color: aqua;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-family: serif;
+  margin-right: 20px;
+}
+
+.botonLiberarMesa {
+  width: 150px;
+  background-color: red;
+  font-size: 18px;
+  font-family: serif;
 }

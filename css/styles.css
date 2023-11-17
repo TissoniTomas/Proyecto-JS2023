@@ -3,6 +3,10 @@
   background-color: #c0f6f9;
 }
 
+@font-face {
+  font-family: "Tungsten";
+  src: url(/fonts/Tungsten-Bold.ttf);
+}
 .navbar {
   display: flex;
   justify-content: start;
@@ -29,10 +33,14 @@
 .navbar-items .link {
   text-decoration: none;
   color: red;
+  font-family: "Tungsten";
 }
 
 .navbar--listado {
-  margin: 0px 50px;
+  margin: 0px 100px;
+  font-family: "Tungsten";
+  letter-spacing: 2px;
+  font-size: 55px;
 }
 
 #main {
@@ -41,14 +49,73 @@
 }
 
 .section--presentacion {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 .section--presentacion .titulo--presentacion {
   color: blue;
+  font-family: "Tungsten";
+  font-size: 80px;
+}
+.section--presentacion .parrafo--presentacion {
+  font-size: 50px;
 }
 
+.section--info {
+  margin-top: 200px;
+}
+.section--info .info--titulo {
+  color: blue;
+  font-family: "Tungsten";
+  font-size: 60px;
+}
+.section--info .info--parrafo {
+  font-size: 35px;
+}
+
+.cards .card--titulo {
+  color: blue;
+  font-family: "Tungsten";
+  font-size: 50px;
+}
+.cards .cards--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8e9dcc;
+}
+.cards .cards--container .cards--clientes {
+  width: 450px;
+  height: 800px;
+  border: 5px double black;
+  margin: 30px;
+  background-color: #8e9dcc;
+}
+.cards .cards--container .cards--clientes .cards--img {
+  width: 400px;
+  height: 350px;
+  margin-top: 20px;
+}
+.cards .cards--container .cards--clientes .cards--titulo {
+  font-family: "Tungsten";
+  font-size: 35px;
+  background-color: #8e9dcc;
+}
+.cards .cards--container .cards--clientes .cards--parrafo {
+  text-align: center;
+  font-size: 20px;
+  margin: 0px 15px;
+  background-color: #8e9dcc;
+}
+
+@font-face {
+  font-family: Tungsten;
+  src: url(fonts/Tungsten/Tungsten-Bold/Tungsten-Bold.ttf);
+}
 .titulo {
   text-align: center;
+  font-family: Tungsten;
+  font-size: 60px;
+  border: 10px double red;
 }
 
 .casilla {
@@ -74,25 +141,45 @@
   display: flex;
   flex-direction: column;
   margin: 50px;
-  color: blue;
+  color: black;
   background-color: pink;
 }
 
 .titulo--dialog {
   background-color: pink;
+  text-align: center;
 }
 
 .input--form {
   height: 30px;
   background-color: pink;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: blue;
 }
 
 .etiqueta--dialog {
   font-size: 30px;
+  background-color: pink;
 }
 
 .boton {
-  background-color: red;
+  background-color: #fcf5c7;
+  display: flex;
+  height: auto;
+  width: 150px;
+  border: 5px solid #fcf5c7;
+  border-radius: 20px;
+}
+
+.text--boton {
+  font-family: Tungsten;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  background-color: #fcf5c7;
 }
 
 .ocupado {
@@ -105,6 +192,29 @@
 
 #modal {
   background-color: pink;
+}
+
+.divBotones {
+  background-color: pink;
+  display: flex;
+  justify-content: space-around;
+  margin: 0px 100px;
+}
+
+.botonPedido {
+  background-color: aqua;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-family: serif;
+  margin-right: 20px;
+}
+
+.botonLiberarMesa {
+  width: 150px;
+  background-color: red;
+  font-size: 18px;
+  font-family: serif;
 }
 
 /*# sourceMappingURL=styles.css.map */
