@@ -139,10 +139,9 @@ document.addEventListener("DOMContentLoaded", function () {
     agregarPedido(elemento);
     elemento.ocupado = true;
   };
-  // };
-
+  
   function crearMesas() {
-    let mesaNumero = parseFloat(prompt("Indique el numero de mesas"));
+    let mesaNumero = parseFloat(prompt("Indique el numero de mesas que trabajara el dia de hoy"));
     let mesasArray = [];
 
     for (let i = 1; i <= mesaNumero; i++) {
