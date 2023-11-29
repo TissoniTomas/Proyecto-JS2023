@@ -40,17 +40,13 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("ID a borrar:", id);
     console.log("Tipo de ID:", typeof id);
     console.log("Tipo de claves en localStorage:", typeof keys[0]);
-    if (keys.includes(idString)) {
-      // Eliminar el elemento asociado con la clave id del localStorage
-      localStorage.removeItem(idString);
-      seleccionMesa.classList.remove("ocupado");
-
-      console.log(`Elemento con id ${id} eliminado del localStorage.`);
-    } else {
-      console.log(
-        `No se encontró ningún elemento con id ${id} en el localStorage.`
-      );
-    }
+    keys.includes(idString)
+      ? (localStorage.removeItem(idString),
+        seleccionMesa.classList.remove("ocupado"),
+        console.log(`Elemento con id ${id} eliminado del localStorage.`))
+      : console.log(
+          `No se encontró ningún elemento con id ${id} en el localStorage`
+        );
   };
 
   const enviarPedido = (id) => {
@@ -139,9 +135,20 @@ document.addEventListener("DOMContentLoaded", function () {
     agregarPedido(elemento);
     elemento.ocupado = true;
   };
-  
+
   function crearMesas() {
-    let mesaNumero = parseFloat(prompt("Indique el numero de mesas que trabajara el dia de hoy"));
+    let mesaNumero = parseFloat(localStorage.getItem("numeroMesas"));
+    // mesaNumero = parseFloat(
+    //   prompt("Indique el numero de mesas que trabajara el dia de hoy")
+    // );
+    mesaNumero =
+      !mesaNumero || isNaN(mesaNumero)
+        ? parseFloat(
+            prompt("Indique el número de mesas que trabajará el día de hoy")
+          )
+        : mesaNumero;
+
+    localStorage.setItem("numeroMesas", mesaNumero);
     let mesasArray = [];
 
     for (let i = 1; i <= mesaNumero; i++) {
@@ -150,13 +157,50 @@ document.addEventListener("DOMContentLoaded", function () {
     return mesasArray;
   }
 
+  const crearNuevoGrid = () => {
+    Swal.fire({
+      title: "¡Atencion!",
+      text: "Estas a punto de reiniciar la grilla de trabajo.¿Quieres continuar?",
+      icon: "question",
+      showCancelButton: true,
+      cancelButtonText: "CANCELAR",
+      confirmButtonText: "OK",
+      allowEnterKey: true,
+      allowEscapeKey: true,
+    }).then((result) => {
+      result.isConfirmed
+        ? setTimeout(()=>{
+          (Swal.fire({
+            title: "Grilla de trabajo reiniciada",
+            text: "Se ha reiniciado la grilla de trabajo, refresque la página para volver a indicar el número de mesas",
+            icon: "success",
+          }),
+          localStorage.clear())
+        },2000)
+
+       
+        : console.log("Operación Cancelada");
+    });
+  };
+
   const renderizarPlataforma = (mesas) => {
     let main = document.querySelector("#main");
     main.innerHTML = "";
+
+    let divButtonsPlatform = document.createElement("div");
+    divButtonsPlatform.classList.add("div-plataforma");
+
     let boton = document.createElement("button");
     boton.className = "boton";
     boton.innerHTML =
       '<a class="text--boton" href="/index.html">Volver al inicio</a>';
+
+    let botonNuevoGrid = document.createElement("button");
+    botonNuevoGrid.classList.add("boton", "text--boton", "botonGrid");
+    botonNuevoGrid.innerText = "Reiniciar Grid";
+    botonNuevoGrid.addEventListener("click", () => {
+      crearNuevoGrid();
+    });
 
     let titulo = document.createElement("h1");
     titulo.className = "titulo";
@@ -179,20 +223,22 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    main.append(boton, titulo, contenedor);
+    divButtonsPlatform.append(boton, botonNuevoGrid);
+    main.append(divButtonsPlatform, titulo, contenedor);
   };
 
   let mesas = crearMesas();
 
   let pedidoArray = [];
-  // const mesasSeleccionadas = [];
   renderizarPlataforma(mesas);
   const keys = Object.keys(localStorage);
   console.log(keys);
   if (keys.length > 0) {
     keys.forEach((key) => {
       let mesa = document.querySelector(`#mesa-${key}`);
-      mesa.classList.add("ocupado");
+      if (mesa) {
+        mesa.classList.add("ocupado");
+      }
     });
   }
 });

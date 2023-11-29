@@ -1,13 +1,15 @@
 * {
   font-family: sans-serif;
-  background-color: #c0f6f9;
+ 
 }
 
 @font-face {
   font-family: "Tungsten";
   src: url(/fonts/Tungsten-Bold.ttf);
 }
-
+body{
+  background-color: #c0f6f9;
+}
 .navbar {
   display: flex;
   justify-content: start;

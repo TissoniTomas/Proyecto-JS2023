@@ -1,12 +1,15 @@
 * {
   font-family: sans-serif;
-  background-color: #c0f6f9;
 }
 
 @font-face {
   font-family: "Tungsten";
   src: url(/fonts/Tungsten-Bold.ttf);
 }
+body {
+  background-color: #c0f6f9;
+}
+
 .navbar {
   display: flex;
   justify-content: start;
@@ -161,6 +164,16 @@
 .etiqueta--dialog {
   font-size: 30px;
   background-color: pink;
+}
+
+.div-plataforma {
+  display: flex;
+  margin: 1rem;
+}
+
+.botonGrid {
+  margin-left: 100px;
+  background-color: red;
 }
 
 .boton {
