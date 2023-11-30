@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(pedido);
   };
 
-  const agregarPedido = (mesa) => {
+  const agregarPedido = (mesa) => { 
     let pedidoModal = document.createElement("dialog");
     pedidoModal.id = "modal";
     pedidoModal.classList.add("modal");
@@ -138,9 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function crearMesas() {
     let mesaNumero = parseFloat(localStorage.getItem("numeroMesas"));
-    // mesaNumero = parseFloat(
-    //   prompt("Indique el numero de mesas que trabajara el dia de hoy")
-    // );
     mesaNumero =
       !mesaNumero || isNaN(mesaNumero)
         ? parseFloat(
@@ -241,4 +238,23 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  fetch('/')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+
+      data.mesas.forEach(mesa => {
+        console.log(`Mesa ${mesa.id}: Ocupado - ${mesa.ocupado}, Pedido - ${mesa.pedido}`);
+      });
+
+      data.pedidos.forEach(pedido => {
+        console.log(`Pedido en Mesa ${pedido.mesaId}: ${pedido.entrada}, ${pedido.platoPrincipal}, ${pedido.bebida}, ${pedido.postre}`);
+      });
+
+      // Aquí puedes utilizar los datos según tus necesidades
+    })
+    .catch(error => {console.error('Error al cargar el archivo JSON:', error)});
 });

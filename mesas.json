@@ -1,0 +1,20 @@
+{
+    "mesas": [
+      {
+        "id": 1,
+        "ocupado": false,
+        "pedido": false
+      }
+      
+    ],
+    "pedidos": [
+      {
+        "mesaId": 1,
+        "entrada": "Nombre de la entrada",
+        "platoPrincipal": "Nombre del plato principal",
+        "bebida": "Nombre de la bebida",
+        "postre": "Nombre del postre"
+      }
+      
+    ]
+  }
