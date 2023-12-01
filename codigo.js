@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       text: "Ingrese a continuacion su clave de trabajador por favor",
       input: "password",
       inputPlaceholder: "Ingrese su clave",
-      icon: "question",
+      icon: "warning",
       showCancelButton: true,
       cancelButtonText: "CANCELAR",
       confirmButtonText: "OK",
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   title: "¡IMPORTANTE!",
                   text: "Vuelva a ingresar su clave o informele a su encargado del turno",
               
-                  icon: "warning",
+                  icon: "error",
                 
                   confirmButtonText: "OK",
                   allowEnterKey: true,
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "ERROR",
             text: "Clave invalida, vuelva a intentarlo o informele al encargado del turno",
             
-            icon: "warning",
+            icon: "error",
             
             confirmButtonText: "OK",
             allowEnterKey: true,
