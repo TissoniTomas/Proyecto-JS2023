@@ -1,0 +1,37 @@
+[
+  {
+    "nombre": "Luisa González",
+    "edad": 28,
+    "sexo": "Femenino",
+    "turno": "Mañana",
+    "codigoTrabajo": "1234"
+  },
+  {
+    "nombre": "Martín Rodríguez",
+    "edad": 35,
+    "sexo": "Masculino",
+    "turno": "Tarde",
+    "codigoTrabajo": "5678"
+  },
+  {
+    "nombre": "Sofía Pérez",
+    "edad": 22,
+    "sexo": "Femenino",
+    "turno": "Noche",
+    "codigoTrabajo": "9012"
+  },
+  {
+    "nombre": "Carlos Gómez",
+    "edad": 40,
+    "sexo": "Masculino",
+    "turno": "Mañana",
+    "codigoTrabajo": "3456"
+  },
+  {
+    "nombre": "Valeria Fernández",
+    "edad": 32,
+    "sexo": "Femenino",
+    "turno": "Tarde",
+    "codigoTrabajo": "7890"
+  }
+]
