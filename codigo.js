@@ -31,73 +31,65 @@ document.addEventListener("DOMContentLoaded", function () {
       allowEnterKey: true,
       allowEscapeKey: true,
     })
-      
-      
-      .then((result) => {
-        valor = result.value;
-        console.log("Ingreso " + valor);
-        console.log(typeof valor);
-        const mozoClave = data.find((mozo) => mozo.codigoTrabajo === valor);
-        if (mozoClave) {
-          Swal.fire({
-            title: "¡IMPORTANTE!",
-            html: `A continuación presentaremos la información relacionada a su código de trabajo:<br>
+    .then((result) => {
+      valor = result.value;
+      console.log("Ingreso " + valor);
+      console.log(typeof valor);
+      const mozoClave = data.find((mozo) => mozo.codigoTrabajo === valor);
+      if (mozoClave) {
+        Swal.fire({
+          title: "¡IMPORTANTE!",
+          html: `A continuación presentaremos la información relacionada a su código de trabajo:<br>
           <b>Nombre:</b> ${mozoClave.nombre}<br>
           <b>Edad:</b> ${mozoClave.edad}<br>
           <b>Sexo:</b> ${mozoClave.sexo}<br>
           <b>Turno:</b> ${mozoClave.turno}<br>
           ¿Es esta informacion correcta?`,
-            icon: "question",
-            showCancelButton: true,
-            cancelButtonText: "NO",
-            confirmButtonText: "SI",
-            allowEnterKey: true,
-            allowEscapeKey: true,
-          }).then((result) => {
-            if(result.isDismissed){
-              setTimeout(() => {
-                Swal.fire({
-                  title: "¡IMPORTANTE!",
-                  text: "Vuelva a ingresar su clave o informele a su encargado del turno",
-              
-                  icon: "error",
-                
-                  confirmButtonText: "OK",
-                  allowEnterKey: true,
-                  
-                })
-               }, 1000)
+          icon: "question",
+          showCancelButton: true,
+          cancelButtonText: "NO",
+          confirmButtonText: "SI",
+          allowEnterKey: true,
+          allowEscapeKey: true,
+        }).then((result) => {
+          if (result.isDismissed) {
+            setTimeout(() => {
+              Swal.fire({
+                title: "¡IMPORTANTE!",
+                text: "Vuelva a ingresar su clave o informele a su encargado del turno",
 
-            }else{
-              setTimeout(() => {
-                Swal.fire({
-                  title: "¡BIENVENIDO!",
-                  text: `Hola ${mozoClave.nombre}, ¡bienveido/a!`,
-              
-                  icon: "success",
-                
-                  confirmButtonText: "OK",
-                  allowEnterKey: true,
-                  
-                })
-               }, 1000)
-              
+                icon: "error",
 
-            }
+                confirmButtonText: "OK",
+                allowEnterKey: true,
               });
-        } else {
-          Swal.fire({
-            title: "ERROR",
-            text: "Clave invalida, vuelva a intentarlo o informele al encargado del turno",
-            
-            icon: "error",
-            
-            confirmButtonText: "OK",
-            allowEnterKey: true,
-            
-          })
-        }
-      });
+            }, 1000);
+          } else {
+            setTimeout(() => {
+              Swal.fire({
+                title: "¡BIENVENIDO!",
+                text: `Hola ${mozoClave.nombre}, ¡bienveido/a!`,
+
+                icon: "success",
+
+                confirmButtonText: "OK",
+                allowEnterKey: true,
+              });
+            }, 1000);
+          }
+        });
+      } else {
+        Swal.fire({
+          title: "ERROR",
+          text: "Clave invalida, vuelva a intentarlo o informele al encargado del turno",
+
+          icon: "error",
+
+          confirmButtonText: "OK",
+          allowEnterKey: true,
+        });
+      }
+    });
   };
 
   const capturaModal = (id) => {
@@ -145,8 +137,9 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const agregarPedido = (mesa) => {
+    let divModal = document.createElement("div");
+    divModal.classList.add("divModal");
 
-    
     let pedidoModal = document.createElement("dialog");
     pedidoModal.id = "modal";
     pedidoModal.classList.add("modal");
@@ -200,8 +193,8 @@ document.addEventListener("DOMContentLoaded", function () {
       postreModal,
       divBotones
     );
-
-    document.body.appendChild(pedidoModal);
+    divModal.append(pedidoModal);
+    document.body.appendChild(divModal);
 
     pedidoModal.showModal();
 
@@ -279,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
       '<a class="text--boton" href="/index.html">Volver al inicio</a>';
 
     let botonNuevoGrid = document.createElement("button");
-    botonNuevoGrid.classList.add("boton", "text--boton", "botonGrid");
+    botonNuevoGrid.classList.add("text--boton", "boton");
     botonNuevoGrid.innerText = "Reiniciar Grid";
     botonNuevoGrid.addEventListener("click", () => {
       crearNuevoGrid();
@@ -324,14 +317,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-  
-document.addEventListener("DOMContentLoaded", function () {
-  const hamburguesa = document.querySelector(".hamburguesa");
-  const navbarItems = document.querySelector(".navbar-items");
 
-  hamburguesa.addEventListener("click", function () {
-    navbarItems.classList.toggle("show");
+  document.addEventListener("DOMContentLoaded", function () {
+    const hamburguesa = document.querySelector(".hamburguesa");
+    const navbarItems = document.querySelector(".navbar-items");
+
+    hamburguesa.addEventListener("click", function () {
+      navbarItems.classList.toggle("show");
+    });
   });
-});
-
 });

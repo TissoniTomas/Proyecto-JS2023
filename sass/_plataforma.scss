@@ -1,8 +1,7 @@
 @font-face {
-    font-family: Tungsten;
-    src: url(fonts/Tungsten/Tungsten-Bold/Tungsten-Bold.ttf);
+  font-family: Tungsten;
+  src: url(fonts/Tungsten/Tungsten-Bold/Tungsten-Bold.ttf);
 }
-
 
 .titulo {
   text-align: center;
@@ -34,9 +33,8 @@
   display: flex;
   flex-direction: column;
   margin: 50px;
- color: black;
+  color: black;
   background-color: pink;
-  
 }
 .titulo--dialog {
   background-color: pink;
@@ -47,31 +45,27 @@
   background-color: pink;
   font-size: 15px;
   font-family: sans-serif;
-  color: blue
+  color: blue;
 }
 .etiqueta--dialog {
   font-size: 30px;
   background-color: pink;
 }
 
-.div-plataforma{
+.div-plataforma {
   display: flex;
-  margin: 1rem;
+  margin: 3rem;
+  justify-content: space-evenly;
 }
 
-.botonGrid{
-  margin-left: 100px;
-  background-color: red;
-  
-}
+
 .boton {
+  border: 5px solid red;
+  border-radius: 30px;
+  width: 200px;
+  height: 50px;
+  
   background-color: #fcf5c7;
-  border: 1px solid blaCK;
-  display: flex;
-  height: auto;
-  width: 150px;
-  border: 5px solid #fcf5c7;
-  border-radius: 20px;
 }
 
 .text--boton {
@@ -81,9 +75,8 @@
   text-decoration: none;
   text-align: center;
   color: black;
-  background-color: #fcf5c7;
+  
 }
-
 
 .ocupado {
   background-color: red;
@@ -92,13 +85,18 @@
 .nodisponible {
   background-color: black;
 }
-
+.divModal{
+background-color: red;
+}
 #modal {
   background-color: pink;
-  position: relative;
-
+  max-height: max-content;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
   
-
 }
 .divBotones {
   background-color: pink;
