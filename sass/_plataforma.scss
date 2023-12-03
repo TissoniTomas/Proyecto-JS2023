@@ -3,11 +3,16 @@
   src: url(fonts/Tungsten/Tungsten-Bold/Tungsten-Bold.ttf);
 }
 
+#main{
+  margin: 0px 25px;
+}
 .titulo {
   text-align: center;
   font-family: Tungsten;
   font-size: 60px;
   border: 10px double red;
+  margin-bottom: 100px;
+
 }
 
 .casilla {
@@ -20,14 +25,16 @@
   align-items: center;
   border: 1px solid black;
   font-size: 30px;
-  margin: 25px;
+  
 }
 
 .grilla {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  margin-top: 100px;
+  gap: 60px;
+  margin: 100px;
+  
 }
 .input {
   display: flex;
@@ -45,11 +52,13 @@
   background-color: pink;
   font-size: 15px;
   font-family: sans-serif;
-  color: blue;
+  text-align: center;
+  
 }
 .etiqueta--dialog {
   font-size: 30px;
   background-color: pink;
+  text-align: center;
 }
 
 .div-plataforma {

@@ -30,54 +30,55 @@ document.addEventListener("DOMContentLoaded", function () {
       confirmButtonText: "OK",
       allowEnterKey: true,
       allowEscapeKey: true,
-    })
-    .then((result) => {
+    }).then((result) => {
       valor = result.value;
       console.log("Ingreso " + valor);
       console.log(typeof valor);
       const mozoClave = data.find((mozo) => mozo.codigoTrabajo === valor);
       if (mozoClave) {
-        Swal.fire({
-          title: "¡IMPORTANTE!",
-          html: `A continuación presentaremos la información relacionada a su código de trabajo:<br>
-          <b>Nombre:</b> ${mozoClave.nombre}<br>
-          <b>Edad:</b> ${mozoClave.edad}<br>
-          <b>Sexo:</b> ${mozoClave.sexo}<br>
-          <b>Turno:</b> ${mozoClave.turno}<br>
-          ¿Es esta informacion correcta?`,
-          icon: "question",
-          showCancelButton: true,
-          cancelButtonText: "NO",
-          confirmButtonText: "SI",
-          allowEnterKey: true,
-          allowEscapeKey: true,
-        }).then((result) => {
-          if (result.isDismissed) {
-            setTimeout(() => {
-              Swal.fire({
-                title: "¡IMPORTANTE!",
-                text: "Vuelva a ingresar su clave o informele a su encargado del turno",
+        setTimeout(() => {
+          Swal.fire({
+            title: "¡IMPORTANTE!",
+            html: `A continuación presentaremos la información relacionada a su código de trabajo:<br>
+              <b>Nombre:</b> ${mozoClave.nombre}<br>
+              <b>Edad:</b> ${mozoClave.edad}<br>
+              <b>Sexo:</b> ${mozoClave.sexo}<br>
+              <b>Turno:</b> ${mozoClave.turno}<br>
+              ¿Es esta informacion correcta?`,
+            icon: "question",
+            showCancelButton: true,
+            cancelButtonText: "NO",
+            confirmButtonText: "SI",
+            allowEnterKey: true,
+            allowEscapeKey: true,
+          }).then((result) => {
+            if (result.isDismissed) {
+              setTimeout(() => {
+                Swal.fire({
+                  title: "¡IMPORTANTE!",
+                  text: "Vuelva a ingresar su clave o informele a su encargado del turno",
 
-                icon: "error",
+                  icon: "error",
 
-                confirmButtonText: "OK",
-                allowEnterKey: true,
-              });
-            }, 1000);
-          } else {
-            setTimeout(() => {
-              Swal.fire({
-                title: "¡BIENVENIDO!",
-                text: `Hola ${mozoClave.nombre}, ¡bienveido/a!`,
+                  confirmButtonText: "OK",
+                  allowEnterKey: true,
+                });
+              }, 1000);
+            } else {
+              setTimeout(() => {
+                Swal.fire({
+                  title: "¡BIENVENIDO!",
+                  text: `Hola ${mozoClave.nombre}, ¡bienveido/a!`,
 
-                icon: "success",
+                  icon: "success",
 
-                confirmButtonText: "OK",
-                allowEnterKey: true,
-              });
-            }, 1000);
-          }
-        });
+                  confirmButtonText: "OK",
+                  allowEnterKey: true,
+                });
+              }, 1000);
+            }
+          });
+        }, 3000);
       } else {
         Swal.fire({
           title: "ERROR",
@@ -153,23 +154,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let entradaModal = document.createElement("div");
     entradaModal.classList.add("input");
-    entradaModal.innerHTML = `<label class="etiqueta--dialog" for="inputEntrada">Entrada:</label>
-    <input type="text" id="entrada-${mesa.id}"  class="input--form" required>`;
+
+    entradaModal.innerHTML = `<label class="etiqueta--dialog" for="inputEntrada">Entrada</label>
+    <input type="text" id="entrada-${mesa.id}"  class="input--form" placeholder="Ingrese la entrada de la mesa  ${mesa.id}" >`;
 
     let platoPrincipalModal = document.createElement("div");
     platoPrincipalModal.classList.add("input");
-    platoPrincipalModal.innerHTML = ` <label class="etiqueta--dialog" for="inputPlatoPrincipal">Plato Principal:</label>
-    <input type="text" id="platoPrincipal-${mesa.id}" class="input--form" required>`;
+    platoPrincipalModal.innerHTML = ` <label class="etiqueta--dialog" for="inputPlatoPrincipal">Plato Principal</label>
+    <input type="text" id="platoPrincipal-${mesa.id}" class="input--form" placeholder="Ingrese el plato principal de la mesa  ${mesa.id}" >`;
 
     let bebidaModal = document.createElement("div");
     bebidaModal.classList.add("input");
-    bebidaModal.innerHTML = ` <label class="etiqueta--dialog" for="inputBebida">Bebida :</label>
-    <input type="text" id="bebida-${mesa.id}" class="input--form" required>`;
+    bebidaModal.innerHTML = ` <label class="etiqueta--dialog" for="inputBebida">Bebida</label>
+    <input type="text" id="bebida-${mesa.id}" class="input--form" placeholder="Ingrese la bebida de la mesa  ${mesa.id}">`;
 
     let postreModal = document.createElement("div");
     postreModal.classList.add("input");
-    postreModal.innerHTML = ` <label class="etiqueta--dialog" for="inputEntrada">Postre:</label>
-    <input type="text" id="postre-${mesa.id}" class="input--form" required>`;
+    postreModal.innerHTML = ` <label class="etiqueta--dialog" for="inputEntrada">Postre</label>
+    <input type="text" id="postre-${mesa.id}" class="input--form" placeholder="Ingrese el postre de la mesa  ${mesa.id}" >`;
+
+
 
     let divBotones = document.createElement("div");
     divBotones.classList.add("divBotones");
