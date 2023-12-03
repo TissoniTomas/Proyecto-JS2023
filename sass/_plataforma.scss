@@ -28,6 +28,7 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  margin-top: 100px;
 }
 .input {
   display: flex;
@@ -61,10 +62,11 @@
 .botonGrid{
   margin-left: 100px;
   background-color: red;
+  
 }
 .boton {
   background-color: #fcf5c7;
-  
+  border: 1px solid blaCK;
   display: flex;
   height: auto;
   width: 150px;
@@ -93,6 +95,10 @@
 
 #modal {
   background-color: pink;
+  position: relative;
+
+  
+
 }
 .divBotones {
   background-color: pink;

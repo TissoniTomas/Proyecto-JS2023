@@ -1,0 +1,61 @@
+@media screen and (min-width: 1024px){
+
+.navbar-collapse{
+    display: none;
+    position: relative;
+    background-color: #114b5f;
+    box-shadow: none;
+    border: none;
+}
+.navbar-nav{
+    margin-left: 400px
+}
+.nav-link{
+    font-family: Tungsten;
+    letter-spacing: 5px;
+    
+}
+
+
+
+.nav-item{
+    :hover{
+        text-decoration: underline;
+        text-decoration-color: #fcf5c7;
+        background-color: antiquewhite;
+    }
+}
+
+.titulo-h1{
+    font-size: 80px;
+}
+.parrafo-h1{
+    font-size: 30px;
+}
+
+h2{
+    font-size: 60px;
+}
+
+
+.parrafo-h2{
+    font-size: 20px;
+}
+
+h3{
+    font-size: 50px;
+}
+
+.container-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    margin: 100px;
+}
+.card{
+    margin: 50px;
+    width: 700px;
+    
+}
+    }

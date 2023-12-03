@@ -1,5 +1,9 @@
+@charset "UTF-8";
 * {
   font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @font-face {
@@ -7,107 +11,79 @@
   src: url(/fonts/Tungsten-Bold.ttf);
 }
 body {
-  background-color: #c0f6f9;
+  background-color: #fcf5c7;
 }
 
 .navbar {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  margin: 10px 100px;
+  background-color: #114b5f;
 }
 
-.imagen--logo {
-  width: 150px;
-  height: 150px;
-  margin-right: 300px;
+.navbar-toggler {
+  background-color: #fcf5c7;
 }
 
-.navbar-items {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
-  color: red;
-  font-size: 35px;
-}
-.navbar-items :hover {
-  text-decoration: underline;
-}
-.navbar-items .link {
-  text-decoration: none;
-  color: red;
-  font-family: "Tungsten";
-}
-
-.navbar--listado {
-  margin: 0px 100px;
-  font-family: "Tungsten";
-  letter-spacing: 2px;
-  font-size: 55px;
+.navbar-collapse {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  width: 100%;
+  padding: 0.5rem 0;
+  margin-top: 0.125rem;
+  background-color: #f8f9fa; /* Puedes ajustar el color de fondo según tus preferencias */
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
 }
 
-#main {
-  margin: 100px;
-  text-align: center;
+.navbar-collapse.show {
+  display: block;
 }
 
-.section--presentacion {
+.titulo-h1 {
+  font-family: Tungsten;
   margin-bottom: 50px;
-}
-.section--presentacion .titulo--presentacion {
-  color: blue;
-  font-family: "Tungsten";
-  font-size: 80px;
-}
-.section--presentacion .parrafo--presentacion {
-  font-size: 50px;
-}
-
-.section--info {
-  margin-top: 200px;
-}
-.section--info .info--titulo {
-  color: blue;
-  font-family: "Tungsten";
+  margin-top: 50px;
   font-size: 60px;
-}
-.section--info .info--parrafo {
-  font-size: 35px;
+  color: #8e9DCC;
 }
 
-.cards .card--titulo {
-  color: blue;
-  font-family: "Tungsten";
-  font-size: 50px;
-}
-.cards .cards--container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #8e9dcc;
-}
-.cards .cards--container .cards--clientes {
-  width: 450px;
-  height: 800px;
-  border: 5px double black;
-  margin: 30px;
-  background-color: #8e9dcc;
-}
-.cards .cards--container .cards--clientes .cards--img {
-  width: 400px;
-  height: 350px;
+h2, h3 {
+  font-family: Tungsten;
+  margin-bottom: 40px;
   margin-top: 20px;
-}
-.cards .cards--container .cards--clientes .cards--titulo {
-  font-family: "Tungsten";
-  font-size: 35px;
-  background-color: #8e9dcc;
-}
-.cards .cards--container .cards--clientes .cards--parrafo {
+  font-size: 40px;
   text-align: center;
-  font-size: 20px;
-  margin: 0px 15px;
-  background-color: #8e9dcc;
+}
+
+.container-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-img-top {
+  width: auto;
+  height: 300px;
+}
+
+.card {
+  display: flex;
+  margin-top: 50px;
+  width: 18rem;
+}
+
+.card-body {
+  background-color: #8e9DCC;
+}
+
+h4 {
+  font-family: Tungsten;
+  font-size: 30px;
+  text-align: center;
 }
 
 @font-face {
@@ -138,6 +114,7 @@ body {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  margin-top: 100px;
 }
 
 .input {
@@ -178,6 +155,7 @@ body {
 
 .boton {
   background-color: #fcf5c7;
+  border: 1px solid blaCK;
   display: flex;
   height: auto;
   width: 150px;
@@ -205,6 +183,7 @@ body {
 
 #modal {
   background-color: pink;
+  position: relative;
 }
 
 .divBotones {
@@ -228,6 +207,54 @@ body {
   background-color: red;
   font-size: 18px;
   font-family: serif;
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar-collapse {
+    display: none;
+    position: relative;
+    background-color: #114b5f;
+    box-shadow: none;
+    border: none;
+  }
+  .navbar-nav {
+    margin-left: 400px;
+  }
+  .nav-link {
+    font-family: Tungsten;
+    letter-spacing: 5px;
+  }
+  .nav-item :hover {
+    text-decoration: underline;
+    text-decoration-color: #fcf5c7;
+    background-color: antiquewhite;
+  }
+  .titulo-h1 {
+    font-size: 80px;
+  }
+  .parrafo-h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 60px;
+  }
+  .parrafo-h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 50px;
+  }
+  .container-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    margin: 100px;
+  }
+  .card {
+    margin: 50px;
+    width: 700px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

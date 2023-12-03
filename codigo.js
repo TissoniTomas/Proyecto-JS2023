@@ -145,6 +145,8 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const agregarPedido = (mesa) => {
+
+    
     let pedidoModal = document.createElement("dialog");
     pedidoModal.id = "modal";
     pedidoModal.classList.add("modal");
@@ -322,4 +324,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburguesa = document.querySelector(".hamburguesa");
+  const navbarItems = document.querySelector(".navbar-items");
+
+  hamburguesa.addEventListener("click", function () {
+    navbarItems.classList.toggle("show");
+  });
+});
+
 });

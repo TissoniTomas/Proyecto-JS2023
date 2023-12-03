@@ -1,5 +1,8 @@
 * {
   font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
  
 }
 
@@ -7,112 +10,80 @@
   font-family: "Tungsten";
   src: url(/fonts/Tungsten-Bold.ttf);
 }
+
 body{
-  background-color: #c0f6f9;
-}
-.navbar {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  margin: 10px 100px;
+  background-color: #fcf5c7;
 }
 
-.imagen--logo {
-  width: 150px;
-  height: 150px;
-  margin-right: 300px;
+.navbar{
+  background-color: #114b5f;
+}
+.navbar-toggler{
+  background-color: #fcf5c7;
+}
+.navbar-collapse {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  width: 100%;
+  padding: .5rem 0;
+  margin-top: .125rem;
+  background-color: #f8f9fa; /* Puedes ajustar el color de fondo según tus preferencias */
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.175);
 }
 
-.navbar-items {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
-  color: red;
-  font-size: 35px;
-
-  :hover {
-    text-decoration: underline;
-  }
-
-  .link {
-    text-decoration: none;
-    color: red;
-    font-family: "Tungsten";
-  }
+.navbar-collapse.show {
+  display: block;
 }
 
-.navbar--listado {
-  margin: 0px 100px;
-  font-family: "Tungsten";
-  letter-spacing: 2px;
-  font-size: 55px;
-}
-
-#main {
-  margin: 100px;
-  text-align: center;
-}
-
-.section--presentacion {
+.titulo-h1{
+  font-family: Tungsten;
   margin-bottom: 50px;
-  .titulo--presentacion {
-    color: blue;
-    font-family: "Tungsten";
-    font-size: 80px;
-  }
-  .parrafo--presentacion {
-    font-size: 50px;
-  }
+  margin-top: 50px;
+  font-size: 60px;
+  color: #8e9DCC;
 }
 
-.section--info {
-  margin-top: 200px;
-  .info--titulo {
-    color: blue;
-    font-family: "Tungsten";
-    font-size: 60px;
-  }
-  .info--parrafo {
-    font-size: 35px;
-  }
+
+
+h2, h3{
+  font-family: Tungsten;
+  margin-bottom: 40px;
+  margin-top:20px;
+  font-size: 40px;
+  text-align: center;
+
+
 }
-.cards {
-  .card--titulo {
-    color: blue;
-    font-family: "Tungsten";
-    font-size: 50px;
-  }
-  .cards--container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #8e9dcc;
+.container-cards{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card-img-top{
+  width: auto;
+  height: 300px;
+}
+.card{
+  display: flex;
+  margin-top: 50px;
+  width: 18rem;
+}
+.card-body{
+  background-color: #8e9DCC;
+  
+  
+}
 
-    .cards--clientes {
-      width: 450px;
-      height: 800px;
-      border: 5px double black;
-      margin: 30px;
-      background-color: #8e9dcc;
-
-      .cards--img {
-        width: 400px;
-        height: 350px;
-        margin-top: 20px;
-      }
-
-      .cards--titulo {
-        font-family: "Tungsten";
-        font-size: 35px;
-        background-color: #8e9dcc;
-      }
-
-      .cards--parrafo {
-        text-align: center;
-        font-size: 20px;
-        margin: 0px 15px;
-        background-color: #8e9dcc;
-      }
-    }
-  }
+h4{
+  font-family: Tungsten;
+  font-size: 30px;
+  text-align: center;
+  
 }

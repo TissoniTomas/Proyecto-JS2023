@@ -1,88 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi restaurante</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MI RESTAURANTE</title>
+  <link rel="shortcut icon" href="./imgs/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+  ">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg flex-nowrap">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img class="w-50 h-50" src="./imgs/logo.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active fs-1 link" aria-current="page" href="./index.html">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active fs-1" href="./pages/plataforma.html">PLATAFORMA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active fs-1" href="#">QUIENES SOMOS</a>
+            </li>
+           
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section id="section" class="text-center m-5">
+      <h1 class="titulo-h1">Bienvenido a tu restaurante como nunca lo habias visto</h1>
+      <p class="parrafo-h1">"Bienvenido a [Nombre del Proyecto], la solución integral para la gestión de pedidos en restaurantes. Nos enorgullece ofrecer un software intuitivo y altamente personalizable que transformará por completo la experiencia de tu restaurante. Con nuestra interfaz gráfica y dinámica desarrollada en JavaScript, tus mozos podrán cargar pedidos de manera eficiente, mientras que nuestro panel de monitoreo en tiempo real te brinda un control total sobre las operaciones. Simplifica la complejidad, optimiza el servicio y personaliza según tus necesidades específicas. Descubre una nueva era en la gestión de pedidos para llevar tu restaurante al siguiente nivel."</p>
+    </section>
 
-    <link rel="stylesheet" href="/css/styles.css" />
-  </head>
-  <body>
-    <header id="header">
-      <nav class="navbar">
-        <a href="/index.html"
-          ><img
-            class="imagen--logo"
-            src="./imgs/logo.png"
-            alt=""
-        /></a>
-        <ul class="navbar-items">
-          <li class="navbar--listado">HOME</li>
-          <li class="navbar--listado">
-            <a class="link" href="./pages/plataforma.html">PLATAFORMA</a>
-          </li>
-          <li class="navbar--listado">QUIENES SOMOS</li>
-        </ul>
-      </nav>
-    </header>
-    <main id="main">
-      <section class="section--presentacion">
-        <h1 class="titulo--presentacion">
-          Tu restaurante como nunca lo habias visto
-        </h1>
-        <p class="parrafo--presentacion">
-          ¡Bienvenido a nuestra innovadora solución de gestión de mesas en el
-          mundo digital! Sumérgete en la experiencia culinaria del mañana con
-          nuestro proyecto de distribución de mesas en un restaurante, creado
-          con la última tecnología en JavaScript.
-        </p>
-      </section>
-      <section class="section--info">
-        <h2 class="info--titulo">¿Como lo realizamos?</h2>
-        <p class="info--parrafo">
-          En el corazón de la revolución gastronómica, nuestro proyecto ofrece
-          mucho más que una simple gestión de mesas. Es una ventana al futuro de
-          la industria restaurantera, donde la eficiencia y la tecnología se
-          unen para crear experiencias inolvidables. Desde la creación dinámica
-          de mesas hasta la gestión detallada de pedidos, nuestro proyecto
-          redefine la forma en que interactuamos con los espacios gastronómicos.
-        </p>
-        <p class="info--parrafo">
-          Características Excepcionales: Distribución de Mesas Personalizada:
-          Diseña el layout de tu restaurante de manera intuitiva y visualiza la
-          distribución en tiempo real. Gestión Eficiente de Pedidos: Realiza
-          pedidos de forma rápida y precisa, con la capacidad de adaptarse a las
-          preferencias únicas de cada cliente. Experiencia del Cliente Mejorada:
-          Proporciona a tus comensales un servicio excepcional al anticipar y
-          satisfacer sus necesidades con nuestra interfaz interactiva.
-        </p>
-      </section>
+    <article class=" text-center m-5">
+      <h2 > Optimiza tu Servicio: Gestión de Pedidos Simplificada</h2>
+      <p class="parrafo-h2">Simplifica la operación de tu restaurante con nuestra solución de software especializado. Desde la toma de pedidos hasta la entrega en la mesa, nuestro sistema agiliza todo el proceso para mejorar la eficiencia y la experiencia del cliente.</p>
+      <h2>Grilla Interactiva para Cargar Pedidos sin Esfuerzo</h2>
+      <p class="parrafo-h2">Introducimos una interfaz gráfica intuitiva y fácil de usar que permite a tus mozos cargar los pedidos de las mesas con solo unos clics. Nuestra grilla dinámica, desarrollada en JavaScript, hace que la gestión de pedidos sea rápida, precisa y sin complicaciones.</p>
+      <h2> Control Total en tus Manos: Monitoreo en Tiempo Real</h2>
+      <p class="parrafo-h2">Mantén el control total de las operaciones del restaurante con nuestro panel de monitoreo en tiempo real. Visualiza el estado de cada mesa, el tiempo de preparación de los pedidos y más, permitiéndote tomar decisiones informadas para mejorar la eficiencia operativa.</p>
+    </article>
 
-      <article class="cards">
-        <h3 class="card--titulo">
-          Nuestros clientes nos comparten sus opiniones
-        </h3>
-        <div class="cards--container">
-          <div class="cards--clientes">
-            <img class="cards--img" src="./imgs/Francisca.jpg"  alt="Francisca">
-            <h4 class="cards--titulo">Francisca</h4>
-            <p  class="cards--parrafo">"Como dueño de un restaurante, la adquisición del software de mesas para mi establecimiento ha sido una decisión transformadora. La eficiencia en la gestión de mesas y pedidos ha mejorado significativamente. La interfaz es fácil de usar, permitiéndonos optimizar el flujo de trabajo y brindar un servicio más rápido y personalizado a nuestros clientes. Este software ha sido una inversión valiosa que ha elevado la experiencia en nuestro restaurante."</p>
-          </div>
-          <div class="cards--clientes">
-            <img class="cards--img" src="./imgs/Thomas.jpg" alt="Thomas">
-            <h4 class="cards--titulo">Thomas</h4>
-            <p class="cards--parrafo">"La incorporación del software de mesas ha sido un cambio revolucionario para nuestro restaurante. Hemos experimentado una mejora significativa en la gestión de reservas, la asignación de mesas y el seguimiento de pedidos. La capacidad para personalizar las configuraciones según nuestras necesidades específicas ha sido clave. Estamos encantados con la eficacia y la rentabilidad que este software ha aportado a nuestro negocio. ¡Una inversión que realmente marca la diferencia!" </p>
-          </div>
-          <div class="cards--clientes">
-            <img class="cards--img" src="./imgs/Phill.jpg" alt="Phill">
-            <h4 class="cards--titulo">Phill</h4>
-            <p  class="cards--parrafo">"Estoy encantado con el software de mesas que implementamos en nuestro restaurante. Simplifica la asignación de mesas, facilita el seguimiento de los pedidos y mejora la comunicación entre el personal. La capacidad para visualizar el estado de cada mesa en tiempo real nos ha permitido ofrecer un servicio más rápido y eficiente. Definitivamente, esta herramienta ha contribuido a la excelencia operativa de nuestro negocio."</p>
+    <article >
+      <h3 class="m-5">Nuestros clientes nos certifican</h3>
+      <div class="m-5 container-cards">
+
+        <div class="card">
+          <img src="./imgs/Francisca.jpg" class="card-img-top" alt="Francisca">
+          <div class="card-body">
+            <h4>FRANCISCA</h4>
+            <p class="card-text">¡Estoy impresionado! [Nombre del Proyecto] ha llevado nuestra operación a nuevas alturas. La interfaz gráfica es intuitiva, y la capacidad de adaptar el software a nuestras preferencias es un juego de niños. Nuestros clientes han notado la diferencia en la rapidez del servicio, y el panel de monitoreo en tiempo real nos permite tomar decisiones informadas. ¡Gracias por simplificar nuestra vida en el restaurante!</p>
           </div>
         </div>
-      </article>
-    </main>
-    <footer id="footer"></footer>
-
-    <!-- <script src="/codigo.js"></script> -->
-  </body>
+        <div class="card">
+          <img src="./imgs/Phill.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h4> PHILL</h4>
+          <p class="card-text">Descubrí [Nombre del Proyecto] y nunca he vuelto a experimentar demoras en los pedidos. La grilla de carga de pedidos es tan fácil de usar que nuestros mozos se adaptaron rápidamente. La personalización fue clave para ajustarse a nuestras necesidades específicas, ¡y el monitoreo en tiempo real nos da un control sin precedentes! ¡Definitivamente ha mejorado la eficiencia en nuestro restaurante!</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./imgs/Thomas.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h4>THOMAS</h4>
+          <p class="card-text">Como dueño de un restaurante, siempre buscamos maneras de destacarnos. [Nombre del Proyecto] nos permitió personalizar cada aspecto del sistema según nuestras necesidades únicas. La grilla de carga de pedidos en JavaScript es una maravilla, y el monitoreo en tiempo real nos ha dado un control total sobre nuestras operaciones. Estamos encantados con los resultados y la mejora en la experiencia del cliente.</p>
+        </div>
+      </div>
+    </div>
+      
+    </article>
+  </main>
+  <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
