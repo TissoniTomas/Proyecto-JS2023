@@ -6,6 +6,7 @@
  */
 
 document.addEventListener("DOMContentLoaded", function () {
+  
   class Mesas {
     constructor(id) {
       this.id = id;
@@ -15,83 +16,84 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const informacionMozo = async () => {
-    const resp = await fetch("/mozos.json");
-    const data = await resp.json();
-    let valor = "";
-
-    Swal.fire({
-      title: "¡IMPORTANTE!",
-      text: "Ingrese a continuacion su clave de trabajador por favor",
-      input: "password",
-      inputPlaceholder: "Ingrese su clave",
-      icon: "warning",
-      showCancelButton: true,
-      cancelButtonText: "CANCELAR",
-      confirmButtonText: "OK",
-      allowEnterKey: true,
-      allowEscapeKey: true,
-    }).then((result) => {
+    try {
+      const resp = await fetch("/mozos.json");
+      const data = await resp.json();
+      let valor = "";
+  
+      const result = await Swal.fire({
+        title: "¡IMPORTANTE!",
+        text: "Ingrese a continuacion su clave de trabajador por favor",
+        input: "password",
+        inputPlaceholder: "Ingrese su clave",
+        icon: "warning",
+        showCancelButton: true,
+        cancelButtonText: "CANCELAR",
+        confirmButtonText: "OK",
+        allowEnterKey: true,
+        allowEscapeKey: true,
+      });
+  
       valor = result.value;
-      console.log("Ingreso " + valor);
-      console.log(typeof valor);
+  
       const mozoClave = data.find((mozo) => mozo.codigoTrabajo === valor);
       if (mozoClave) {
-        setTimeout(() => {
-          Swal.fire({
+        const resultInfo = await Swal.fire({
+          title: "¡IMPORTANTE!",
+          html: `A continuación presentaremos la información relacionada a su código de trabajo:<br>
+            <b>Nombre:</b> ${mozoClave.nombre}<br>
+            <b>Edad:</b> ${mozoClave.edad}<br>
+            <b>Sexo:</b> ${mozoClave.sexo}<br>
+            <b>Turno:</b> ${mozoClave.turno}<br>
+            ¿Es esta informacion correcta?`,
+          icon: "question",
+          showCancelButton: true,
+          cancelButtonText: "NO",
+          confirmButtonText: "SI",
+          allowEnterKey: true,
+          allowEscapeKey: true,
+        });
+  
+        if (resultInfo.isDismissed) {
+          await Swal.fire({
             title: "¡IMPORTANTE!",
-            html: `A continuación presentaremos la información relacionada a su código de trabajo:<br>
-              <b>Nombre:</b> ${mozoClave.nombre}<br>
-              <b>Edad:</b> ${mozoClave.edad}<br>
-              <b>Sexo:</b> ${mozoClave.sexo}<br>
-              <b>Turno:</b> ${mozoClave.turno}<br>
-              ¿Es esta informacion correcta?`,
-            icon: "question",
-            showCancelButton: true,
-            cancelButtonText: "NO",
-            confirmButtonText: "SI",
+            text: "Vuelva a ingresar su clave o informele a su encargado del turno",
+            icon: "error",
+            confirmButtonText: "OK",
             allowEnterKey: true,
-            allowEscapeKey: true,
-          }).then((result) => {
-            if (result.isDismissed) {
-              setTimeout(() => {
-                Swal.fire({
-                  title: "¡IMPORTANTE!",
-                  text: "Vuelva a ingresar su clave o informele a su encargado del turno",
-
-                  icon: "error",
-
-                  confirmButtonText: "OK",
-                  allowEnterKey: true,
-                });
-              }, 1000);
-            } else {
-              setTimeout(() => {
-                Swal.fire({
-                  title: "¡BIENVENIDO!",
-                  text: `Hola ${mozoClave.nombre}, ¡bienveido/a!`,
-
-                  icon: "success",
-
-                  confirmButtonText: "OK",
-                  allowEnterKey: true,
-                });
-              }, 1000);
-            }
           });
-        }, 3000);
+          return "Error";
+        } else {
+          await Swal.fire({
+            title: "¡BIENVENIDO!",
+            text: `Hola ${mozoClave.nombre}, ¡bienvenido/a!`,
+            icon: "success",
+            confirmButtonText: "OK",
+            allowEnterKey: true,
+          });
+          return "Encontrado";
+        }
       } else {
-        Swal.fire({
+        await Swal.fire({
           title: "ERROR",
           text: "Clave invalida, vuelva a intentarlo o informele al encargado del turno",
-
           icon: "error",
-
           confirmButtonText: "OK",
           allowEnterKey: true,
         });
+        return "No encontrado";
       }
-    });
+    } catch (error) {
+      console.error(error);
+      return "Error";
+      // Manejar el error de forma adecuada, por ejemplo, mostrar un mensaje de error al usuario.
+    }
   };
+
+  const resultado = async () => {
+    return await informacionMozo();
+  };
+  
 
   const capturaModal = (id) => {
     ingresoEntrada = document.querySelector(`#entrada-${id}`);
@@ -173,8 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
     postreModal.innerHTML = ` <label class="etiqueta--dialog" for="inputEntrada">Postre</label>
     <input type="text" id="postre-${mesa.id}" class="input--form" placeholder="Ingrese el postre de la mesa  ${mesa.id}" >`;
 
-
-
     let divBotones = document.createElement("div");
     divBotones.classList.add("divBotones");
 
@@ -215,18 +215,18 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const seleccionarMesa = (elemento) => {
-    const seleccionMesa = document.getElementById(`mesa-${elemento.id}`);
+ 
 
     agregarPedido(elemento);
     elemento.ocupado = true;
   };
 
-  function crearMesas() {
-    let mesaNumero = parseFloat(localStorage.getItem("numeroMesas"));
-    mesaNumero =
+ const crearMesas = () => {
+    let mesaNumero =  parseFloat(localStorage.getItem("numeroMesas"));
+    mesaNumero = 
       !mesaNumero || isNaN(mesaNumero)
         ? parseFloat(
-            prompt("Indique el número de mesas que trabajará el día de hoy")
+           prompt("Indique el número de mesas que trabajará el día de hoy")
           )
         : mesaNumero;
 
@@ -262,6 +262,20 @@ document.addEventListener("DOMContentLoaded", function () {
         : console.log("Operación Cancelada");
     });
   };
+
+  const renderizarError = ()=>{
+    let main = document.querySelector("#main");
+
+    let section = document.createElement("div");
+    section.classList.add("div-error")
+    
+    let title = document.createElement("h1")
+    title.innerText= "Para ingresar al sistema, refresque la pagina e identifiquese con su clave"
+    title.classList.add("title-error")
+
+     section.append(title);
+     main.append(section)
+  }
 
   const renderizarPlataforma = (mesas) => {
     let main = document.querySelector("#main");
@@ -307,10 +321,21 @@ document.addEventListener("DOMContentLoaded", function () {
     main.append(divButtonsPlatform, titulo, contenedor);
   };
 
-  informacionMozo();
-  let mesas = crearMesas();
+  (async () => {
+    let mesas = crearMesas();
+    let mesasRender = await resultado(); 
+   
+    if (mesasRender === "Encontrado") {
+      renderizarPlataforma(mesas);
+    }
+    else{
+      renderizarError()
+
+    }
+
+    
+  })();
   let pedidoArray = [];
-  renderizarPlataforma(mesas);
   const keys = Object.keys(localStorage);
   console.log(keys);
   if (keys.length > 0) {
